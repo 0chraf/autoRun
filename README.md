@@ -4,5 +4,5 @@ Autoshell es un programa que permite generar shell reversas de manera automátic
 La herramienta funciona de la siguiente manera: el usuario introduce los datos necesarios para generar la shell reverse, como la dirección IP y el puerto de escucha. A continuación, Autoshell genera automáticamente el código de la shell reverse correspondiente al lenguaje de programación seleccionado y lo muestra en pantalla para que el usuario lo copie y pegue en su terminal.
 
 -----------------
-creado por asf  -
+creado por asf  
 -----------------
